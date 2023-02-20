@@ -1,0 +1,365 @@
+
+<div class="container my-2">
+    <div class="card border-0 shadow p-3">
+        <div class="form-floating mb-3 tetx-center ">
+            <h5 class="text-center text-warning">Basic Details</h5>
+        </div>
+  <form class="row g-3">
+    <div class="col-md-6">
+        <label class="form-label">SHM NO</label>
+        <input type="text" class="form-control" id="SHM_NO" name="shmno" [(ngModel)]="SHM_NO">
+      </div>
+    <div class="col-md-6">
+      <label class="form-label">Child Name</label>
+      <input type="text" class="form-control" id="childName" name="childname" [(ngModel)]="childName">
+    </div>
+    <div class="col-md-6">
+      <label class="form-label">Father Name</label>
+      <input type="text" class="form-control" id="fatherName" name="fatherName" [(ngModel)]="fatherName">
+    </div>
+    <div class="col-md-6">
+        <label class="form-label">Mother Name</label>
+        <input type="text" class="form-control" id="MotherName" name="motherName" [(ngModel)]="motherName">
+      </div>
+      <div class="col-md-4">
+        <label class="form-label">Gender</label>
+        <select id="gender" class="form-select" name="gender" [(ngModel)]="gender">
+          <option selected>Choose Gender</option>
+          <option>Male</option>
+          <option>Female</option>
+          <option>other</option>
+        </select>
+      </div>
+    <div class="col-md-4">
+        <label class="form-label">Age</label>
+        <input type="number" class="form-control" id="age"name="sge" [(ngModel)]="age">
+      </div>
+    <div class="col-md-4">
+        <label class="form-label">Date of Admission</label>
+        <input type="date" class="form-control" id="dateOfAdmission"name="sge" [(ngModel)]="dateOfAdmission">
+      </div>
+    <div class="col-md-6">
+        <label class="form-label">Distict</label>
+        <select id="district" class="form-select" name="district" [(ngModel)]="district"(change)="onDistrictChange()">
+          <option selected>Choose District</option>
+          <option *ngFor="let district of districts" [value]="district">{{ district }}</option>
+        </select>
+      </div>
+    <div class="col-md-6">
+        <label class="form-label">Taluk</label>
+        <select id="taluk" class="form-select" name="taluk" [(ngModel)]="taluk">
+          <option selected>Choose Taluk</option>
+          <option *ngFor="let taluk of taluksOfDistrict" [value]="taluk">{{ taluk }}</option>
+        </select>
+      </div>
+      <div class="col-md-12">
+        <label class="form-label">Address</label>
+        <input type="text" class="form-control" id="age"name="address" [(ngModel)]="address">
+      </div>
+      
+    <div class="col-12">
+        <button type="button" class="btn btn-outline-success" (click)="addChild()">Add Child</button>
+    </div>
+  </form>
+</div>
+</div>
+
+<div class="container my-2">
+  <div class="card border-0 shadow p-3">
+      <div class="form-floating mb-3 tetx-center ">
+          <h5 class="text-center text-warning">Additional Details</h5>
+      </div>
+      <form class="row g-3">
+  <div class="col-md-6">
+    <label class="form-label">Anganwadi Name</label>
+    <input type="text" class="form-control" id="anganwadiName"name="anganwadiName" [(ngModel)]="anganwadiName">
+  </div>
+  <div class="col-md-6">
+    <label class="form-label">Anganwadi Asha Name</label>
+    <input type="text" class="form-control" id="awAshaName"name="awAshaName" [(ngModel)]="awAshaName">
+  </div>
+
+  <div class="col-md-4">
+    <label class="form-label">Mother Age</label>
+    <input type="number" class="form-control" id="motherAge"name="motherAge" [(ngModel)]="motherAge">
+  </div>
+  <div class="col-md-4">
+    <label class="form-label">Mother Education</label>
+    <input type="text" class="form-control" id="motherEducation"name="motherEducation" [(ngModel)]="motherEducation">
+  </div>
+  <div class="col-md-4">
+    <label class="form-label">Mother Profession</label>
+    <input type="text" class="form-control" id="motherProfession"name="motherProfession" [(ngModel)]="motherProfession">
+  </div>
+  <div class="col-md-4">
+    <label class="form-label">Father Age</label>
+    <input type="number" class="form-control" id="fatherAge"name="fatherAge" [(ngModel)]="fatherAge">
+  </div>
+  <div class="col-md-4">
+    <label class="form-label">Father Education</label>
+    <input type="text" class="form-control" id="fatherEducation"name="fatherEducation" [(ngModel)]="fatherEducation">
+  </div>
+  <div class="col-md-4">
+    <label class="form-label">Father Profession</label>
+    <input type="text" class="form-control" id="fatherProfession"name="fatherProfession" [(ngModel)]="fatherProfession">
+  </div>
+  <div class="col-md-4">
+    <label class="form-label">Number Of Family Members</label>
+    <input type="number" class="form-control" id="noOfFamilyMembers"name="noOfFamilyMembers" [(ngModel)]="noOfFamilyMembers">
+  </div>
+
+  <div class="col-md-4">
+    <label class="form-label">Average Daily Income</label>
+    <input type="number" class="form-control" id="averageDailyIncome"name="averageDailyIncome" [(ngModel)]="averageDailyIncome">
+  </div>
+
+  <div class="col-md-4">
+    <label class="form-label">Number Of Siblings</label>
+    <input type="number" class="form-control" id="noOfSiblings"name="noOfSiblings" [(ngModel)]="noOfSiblings">
+  </div>
+</form>
+</div>
+</div>
+
+
+<div class="container my-2">
+  <div class="card border-0 shadow p-3">
+      <div class="form-floating mb-3 tetx-center ">
+          <h5 class="text-center text-warning">Child History Complaints</h5>
+      </div>
+      <form class="row g-3 mx-3">
+  <div class="col-md-2">
+    <label class="form-label">Appetite</label>
+    <div class="form-check">
+      <input class="form-check-input" type="radio" name="appetite" id="appetite" value="YES" [(ngModel)]="appetite">
+      <label class="appetite" for="appetite">
+       YES
+      </label>
+    </div>
+    <div class="form-check">
+      <input class="form-check-input" type="radio" name="appetite" id="appetite1" value="NO" [(ngModel)]="appetite"checked>
+      <label class="form-check-label" for="appetite1">
+        NO
+      </label>
+    </div>
+  </div>
+
+  <div class="col-md-2">
+    <label class="form-label">Diarrhoea</label>
+    <div class="form-check">
+      <input class="form-check-input" type="radio" name="Diarrhoea" id="Diarrhoea" value="YES" [(ngModel)]="diarrhoea" >
+      <label class="form-check-labelDiarrhoea">
+       YES
+      </label>
+    </div>
+    <div class="form-check">
+      <input class="form-check-input" type="radio" name="Diarrhoea" id="Diarrhoea1" value="NO" [(ngModel)]="diarrhoea" checked>
+      <label class="form-check-label" for="Diarrhoea1">
+        NO
+      </label>
+    </div>
+  </div>
+
+  <div class="col-md-2">
+    <label class="form-label">Vomitting</label>
+    <div class="form-check">
+      <input class="form-check-input" type="radio" name="Vomitting" id="Vomitting" value="YES" [(ngModel)]="vomitting">
+      <label class="form-check-label" for="Vomitting">
+       YES
+      </label>
+    </div>
+    <div class="form-check">
+      <input class="form-check-input" type="radio" name="Vomitting" id="Vomitting1" value="NO"[(ngModel)]="vomitting"checked>
+      <label class="form-check-label" for="Vomitting1">
+        NO
+      </label>
+    </div>
+  </div>
+
+  <div class="col-md-2">
+    <label class="form-label">urinary Complaint</label>
+    <div class="form-check">
+      <input class="form-check-input" type="radio" name="urinaryComplaint" id="urinaryComplaint" value="YES" [(ngModel)]="urinaryComplaint">
+      <label class="form-check-label" for="flexRadioDefault1">
+       YES
+      </label>
+    </div>
+    <div class="form-check">
+      <input class="form-check-input" type="radio" name="urinaryComplaint" id="urinaryComplaint1" value="NO"[(ngModel)]="urinaryComplaint"checked>
+      <label class="form-check-label" for="urinaryComplaint1">
+        NO
+      </label>
+    </div>
+  </div>
+
+  <div class="col-md-2">
+    <label class="form-label">Fever</label>
+    <div class="form-check">
+      <input class="form-check-input" type="radio" name="fever" id="fever" value="YES" [(ngModel)]="fever">
+      <label class="form-check-label" for="fever">
+       YES
+      </label>
+    </div>
+    <div class="form-check">
+      <input class="form-check-input" type="radio" name="fever" id="fever1" value="NO"[(ngModel)]="fever"checked>
+      <label class="form-check-label" for="fever1">
+        NO
+      </label>
+    </div>
+  </div>
+
+  <div class="col-md-2">
+    <label class="form-label">Cough</label>
+    <div class="form-check">
+      <input class="form-check-input" type="radio" name="cough" id="cough" value="YES" [(ngModel)]="cough">
+      <label class="form-check-label" for="cough">
+       YES
+      </label>
+    </div>
+    <div class="form-check">
+      <input class="form-check-input" type="radio" name="cough" id="cough1" value="NO"[(ngModel)]="cough"checked>
+      <label class="form-check-label" for="cough1">
+        NO
+      </label>
+    </div>
+  </div>
+
+  <div class="col-md-2">
+    <label class="form-label">Lethargy</label>
+    <div class="form-check">
+      <input class="form-check-input" type="radio" name="lethargy" id="lethargy" value="YES" [(ngModel)]="lethargy">
+      <label class="form-check-label" for="lethargy">
+       YES
+      </label>
+    </div>
+    <div class="form-check">
+      <input class="form-check-input" type="radio" name="lethargy" id="lethargy1" value="NO"[(ngModel)]="lethargy"checked>
+      <label class="form-check-label" for="lethargy1">
+        NO
+      </label>
+    </div>
+  </div>
+  <div class="col-md-2">
+    <label class="form-label">Swelling Of Limbs Body</label>
+    <div class="form-check">
+      <input class="form-check-input" type="radio" name="swellingOfLimbsBody" id="swellingOfLimbsBody" value="YES" [(ngModel)]="swellingOfLimbsBody">
+      <label class="form-check-label" for="swellingOfLimbsBody">
+       YES
+      </label>
+    </div>
+    <div class="form-check">
+      <input class="form-check-input" type="radio" name="swellingOfLimbsBody" id="swellingOfLimbsBody1" value="NO"[(ngModel)]="swellingOfLimbsBody"checked>
+      <label class="form-check-label" for="swellingOfLimbsBody1">
+        NO
+      </label>
+    </div>
+  </div>
+
+  <div class="col-md-2">
+    <label class="form-label">Skin Changes</label>
+    <div class="form-check">
+      <input class="form-check-input" type="radio" name="skinChanges" id="skinChanges" value="YES" [(ngModel)]="skinChanges">
+      <label class="form-check-label" for="skinChanges">
+       YES
+      </label>
+    </div>
+    <div class="form-check">
+      <input class="form-check-input" type="radio" name="skinChanges" id="skinChanges1" value="NO"[(ngModel)]="skinChanges"checked>
+      <label class="form-check-label" for="skinChanges1" >
+        NO
+      </label>
+    </div>
+  </div>
+</form>
+</div>
+</div>
+
+
+
+
+<div class="container my-2">
+  <div class="card border-0 shadow p-3">
+      <div class="form-floating mb-3 tetx-center ">
+          <h5 class="text-center text-warning">Child Immunization History</h5>
+      </div>
+      <form class="row g-3">
+  <div class="col-md-4">
+    <label class="form-label">BCG OPV</label>
+    <input type="text" class="form-control" id="bcgOpv"name="bcgOpv" [(ngModel)]="bcgOpv">
+  </div>
+
+  <div class="col-md-4">
+    <label class="form-label">Measles</label>
+    <input type="text" class="form-control" id="measles"name="measles" [(ngModel)]="measles">
+  </div>
+
+  <div class="col-md-4">
+    <label class="form-label">DPT OPV</label>
+    <input type="text" class="form-control" id="dptOpv"name="dptOpv" [(ngModel)]="dptOpv">
+  </div>
+
+  <div class="col-md-4">
+    <label class="form-label">Booster Hepatits B</label>
+    <input type="text" class="form-control" id="boosterHepatitsB"name="boosterHepatitsB" [(ngModel)]="boosterHepatitsB">
+  </div>
+</form>
+</div>
+</div>
+
+
+
+
+<div class="container my-2">
+  <div class="card border-0 shadow p-3">
+      <div class="form-floating mb-3 tetx-center ">
+          <h5 class="text-center text-warning">Child Dietary History</h5>
+      </div>
+      <form class="row g-3">
+  <div class="col-md-4">
+    <label class="form-label">Brest Feeds</label>
+    <input type="text" class="form-control" id="brestFeeds"name="brestFeeds" [(ngModel)]="brestFeeds">
+  </div>
+
+  <div class="col-md-4">
+    <label class="form-label">Other Milk</label>
+    <input type="text" class="form-control" id="otherMilk"name="otherMilk" [(ngModel)]="otherMilk">
+  </div>
+
+  <div class="col-md-4">
+    <label class="form-label">Milk Type</label>
+    <input type="text" class="form-control" id="milkType"name="milkType" [(ngModel)]="milkType">
+  </div>
+
+  <div class="col-md-4">
+    <label class="form-label">Is Botteled</label>
+    <input type="text" class="form-control" id="isBottleRed"name="isBottleRed" [(ngModel)]="isBottleRed">
+  </div>
+
+  <div class="col-md-4">
+    <label class="form-label">Complimentary Feeds</label>
+    <input type="text" class="form-control" id="complimentaryFeeds"name="complimentaryFeeds" [(ngModel)]="complimentaryFeeds">
+  </div>
+
+  <div class="col-md-4">
+    <label class="form-label">Age Of Use</label>
+    <input type="text" class="form-control" id="ageOfUse"name="ageOfUse" [(ngModel)]="ageOfUse">
+  </div>
+
+  <div class="col-md-4">
+    <label class="form-label">Number Of Feed Per Day</label>
+    <input type="text" class="form-control" id="noOfFeedPerDay"name="noOfFeedPerDay" [(ngModel)]="noOfFeedPerDay">
+  </div>
+
+</form>
+</div>
+</div>
+<form class="row g-3">
+<div class="mx-3 my-5 col-md-12 d-flex justify-content-center">
+  <button type="button" class="btn btn-success" (click)="addChild()">Add Child</button>
+</div>
+</form>
+
+
+
+
+ 
